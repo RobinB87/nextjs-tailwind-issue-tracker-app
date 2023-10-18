@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-
 import { BsFillBugFill } from "react-icons/bs";
 
 const NavBar = () => {
