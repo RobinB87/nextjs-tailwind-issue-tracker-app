@@ -19,6 +19,10 @@ const NavBar = () => {
     },
   ];
 
+  const getActiveLink = (href: string) => {
+    return (href === path ? "text-zinc-900 font-bold" : "text-zinc-500") + " hover:text-zinc-800 transition-colors";
+  };
+
   return (
     <nav className="flex space-x-6 border-b mb-5 px-5 h-14 items-center">
       <Link href="/">
@@ -27,11 +31,7 @@ const NavBar = () => {
       <div className="flex space-x-6">
         {links &&
           links.map((x) => (
-            <Link
-              key={x.href}
-              href={x.href}
-              className={`${path === x.href ? "text-zinc-900" : "text-zinc-500"} hover:text-zinc-800 transition-colors`}
-            >
+            <Link key={x.href} href={x.href} className={getActiveLink(x.href)}>
               {x.label}
             </Link>
           ))}
