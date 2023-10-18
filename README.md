@@ -6,3 +6,4 @@
 4. npx prisma init
 5. create prisma model
 6. npx prisma migrate dev
+7. npm i zod
