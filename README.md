@@ -14,3 +14,4 @@
 12. to add a theme, add <ThemePanel /> in theme tag to easily create and copy a theme tag
 13. for font, add variable: "--font-inter" and add className={inter.variable} to html
 14. create theme-config.css and import it in root layout
+15. npm install --save react-simplemde-editor easymde
