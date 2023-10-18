@@ -11,3 +11,4 @@
 9. import '@radix-ui/themes/styles.css'
 10. add to layout.tsx
 11. wrap everything inside body in <Theme>
+12. to add a theme, add <ThemePanel /> in theme tag to easily create and copy a theme tag
