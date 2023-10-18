@@ -16,3 +16,4 @@
 14. create theme-config.css and import it in root layout
 15. npm i --save react-simplemde-editor easymde
 16. npm i react-hook-form
+17. npm i axios
