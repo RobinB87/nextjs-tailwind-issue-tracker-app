@@ -7,3 +7,7 @@
 5. create prisma model
 6. npx prisma migrate dev
 7. npm i zod
+8. npm i @radix-ui/themes
+9. import '@radix-ui/themes/styles.css'
+10. add to layout.tsx
+11. wrap everything inside body in <Theme>
