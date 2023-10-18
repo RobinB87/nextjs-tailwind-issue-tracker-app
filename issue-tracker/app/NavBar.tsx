@@ -1,8 +1,13 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 import { BsFillBugFill } from "react-icons/bs";
 
 const NavBar = () => {
+  const path = usePathname();
+
   const links = [
     {
       label: "Dashboard",
@@ -22,7 +27,11 @@ const NavBar = () => {
       <div className="flex space-x-6">
         {links &&
           links.map((x) => (
-            <Link key={x.href} href={x.href} className="text-zinc-500 hover:text-zinc-800 transition-colors">
+            <Link
+              key={x.href}
+              href={x.href}
+              className={`${path === x.href ? "text-zinc-900" : "text-zinc-500"} hover:text-zinc-800 transition-colors`}
+            >
               {x.label}
             </Link>
           ))}
