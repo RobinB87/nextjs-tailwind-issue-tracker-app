@@ -1,6 +1,7 @@
 "use client";
 
 import ErrorMessage from "@/app/components/ErrorMessage";
+import Spinner from "@/app/components/Spinner";
 import { createIssueSchema } from "@/app/validationSchemas";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button, Callout, TextField } from "@radix-ui/themes";
@@ -24,7 +25,9 @@ const NewIssuePage = () => {
   } = useForm<IssueForm>({
     resolver: zodResolver(createIssueSchema),
   });
+
   const [error, setError] = useState("");
+  const [isSubmitting, setSubmitting] = useState(false);
 
   return (
     <div className="max-w-xl">
@@ -37,10 +40,13 @@ const NewIssuePage = () => {
         className="space-y-3"
         onSubmit={handleSubmit(async (data) => {
           try {
+            setSubmitting(true);
             await axios.post("/api/issues", data);
             router.push("/issues");
           } catch (error) {
             setError("An unexpected error occurred");
+          } finally {
+            setSubmitting(false);
           }
         })}
       >
@@ -55,7 +61,7 @@ const NewIssuePage = () => {
           render={({ field }) => <SimpleMDE placeholder="Description" {...field} />}
         ></Controller>
         <ErrorMessage>{errors.description?.message}</ErrorMessage>
-        <Button>Submit new issue</Button>
+        <Button disabled={isSubmitting}>Submit new issue {isSubmitting && <Spinner />}</Button>
       </form>
     </div>
   );
