@@ -17,3 +17,11 @@
 15. npm i --save react-simplemde-editor easymde
 16. npm i react-hook-form
 17. npm i axios
+
+Integrate react hook forms with zod:
+
+18. npm i @hookform/resolvers
+
+const { register, control, handleSubmit } = useForm<IssueForm>({
+resolver: zodResolver(createIssueSchema),
+});
