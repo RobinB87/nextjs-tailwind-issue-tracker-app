@@ -21,7 +21,11 @@
 Integrate react hook forms with zod:
 
 18. npm i @hookform/resolvers
+    const { register, control, handleSubmit } = useForm<IssueForm>({
+    resolver: zodResolver(createIssueSchema),
+    });
 
-const { register, control, handleSubmit } = useForm<IssueForm>({
-resolver: zodResolver(createIssueSchema),
-});
+19. npm i react-markdown
+20. npm i -D @tailwindcss/typography
+    Then import the plugin in tailwind.config.js
+    And use it with className='prose'
