@@ -1,7 +1,7 @@
 import { Spinner } from "./components";
 
-const LoadingIssuesPage = () => {
+const Loading = () => {
   return <Spinner />;
 };
 
-export default LoadingIssuesPage;
+export default Loading;
