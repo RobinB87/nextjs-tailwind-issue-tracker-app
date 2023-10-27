@@ -1,14 +1,29 @@
-import prisma from "@/prisma/client";
-import { Button } from "@radix-ui/themes";
-import { notFound } from "next/navigation";
+"use client";
+
+import { AlertDialog, Button, Flex } from "@radix-ui/themes";
 
 const DeleteIssueButton = async ({ issueId }: { issueId: number }) => {
-  const issue = await prisma.issue.findUnique({ where: { id: issueId } });
-  if (!issue) notFound();
-  console.log("i", issue);
-  //   await prisma.issue.delete({ where: { }})
-
-  return <Button color="red">Delete Issue</Button>;
+  return (
+    <AlertDialog.Root>
+      <AlertDialog.Trigger>
+        <Button color="red">Delete Issue</Button>
+      </AlertDialog.Trigger>
+      <AlertDialog.Content>
+        <AlertDialog.Title>Confirm Delete</AlertDialog.Title>
+        <AlertDialog.Description>Are you sure you want to delete?</AlertDialog.Description>
+        <Flex mt="4" gap="3">
+          <AlertDialog.Cancel>
+            <Button variant="soft" color="gray">
+              Cancel
+            </Button>
+          </AlertDialog.Cancel>
+          <AlertDialog.Action>
+            <Button color="red">Delete</Button>
+          </AlertDialog.Action>
+        </Flex>
+      </AlertDialog.Content>
+    </AlertDialog.Root>
+  );
 };
 
 export default DeleteIssueButton;
