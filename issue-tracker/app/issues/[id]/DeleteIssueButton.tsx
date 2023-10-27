@@ -5,6 +5,7 @@ import { AlertDialog, Button, Flex } from "@radix-ui/themes";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { AiFillDelete } from "react-icons/ai";
 
 const DeleteIssueButton = async ({ issueId }: { issueId: number }) => {
   const router = useRouter();
@@ -29,6 +30,7 @@ const DeleteIssueButton = async ({ issueId }: { issueId: number }) => {
       <AlertDialog.Root>
         <AlertDialog.Trigger>
           <Button color="red" disabled={isDeleting}>
+            <AiFillDelete />
             Delete Issue
             {isDeleting && <Spinner />}
           </Button>
