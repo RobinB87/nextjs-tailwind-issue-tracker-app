@@ -15,6 +15,7 @@ const handler = NextAuth({
       clientSecret,
     }),
   ],
+  session: { strategy: "jwt" },
 });
 
 export { handler as GET, handler as POST };
