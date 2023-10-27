@@ -29,3 +29,7 @@ Integrate react hook forms with zod:
 20. npm i -D @tailwindcss/typography
     Then import the plugin in tailwind.config.js
     And use it with className='prose'
+
+21. npm i next-auth
+
+https://authjs.dev/
