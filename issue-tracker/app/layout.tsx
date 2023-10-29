@@ -7,6 +7,7 @@ import { Inter } from "next/font/google";
 
 import NavBar from "./NavBar";
 import AuthProvider from "./api/auth/[...nextauth]/Provider";
+import QueryClientProvider from "./QueryClientProvider";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
@@ -18,16 +19,18 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <AuthProvider>
-        <body className={inter.variable}>
-          <Theme accentColor="teal" radius="large">
-            <NavBar />
-            <main className="p-5">
-              <Container>{children}</Container>
-            </main>
-          </Theme>
-        </body>
-      </AuthProvider>
+      <body className={inter.variable}>
+        <QueryClientProvider>
+          <AuthProvider>
+            <Theme accentColor="teal" radius="large">
+              <NavBar />
+              <main className="p-5">
+                <Container>{children}</Container>
+              </main>
+            </Theme>
+          </AuthProvider>
+        </QueryClientProvider>
+      </body>
     </html>
   );
 }

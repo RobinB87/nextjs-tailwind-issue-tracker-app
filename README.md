@@ -35,3 +35,5 @@ Integrate react hook forms with zod:
 https://authjs.dev/
 
 22. npm i @next-auth/prisma-adapter
+
+23. npm i @tanstack/react-query
