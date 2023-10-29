@@ -38,7 +38,7 @@ const NavLinks = () => {
   ];
 
   const getActiveLinkClass = (href: string) => {
-    return href === path ? "nav-link" : "text-zinc-900";
+    return href === path ? "text-zinc-900 font-bold" : "nav-link";
   };
 
   return (
