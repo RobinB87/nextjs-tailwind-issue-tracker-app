@@ -1,20 +1,25 @@
 "use client";
 
+import { Spinner } from "@/app/components";
+import { User } from "@prisma/client";
 import { Select } from "@radix-ui/themes";
+import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import { User } from "next-auth";
-import React, { useEffect, useState } from "react";
 
 const AssigneeSelect = () => {
-  const [users, setUsers] = useState<User[]>([]);
+  const {
+    data: users,
+    error,
+    isLoading,
+  } = useQuery<User[]>({
+    queryKey: ["users"],
+    queryFn: () => axios.get("/api/users").then((x) => x.data),
+    staleTime: 60 * 1000, // 60s
+    retry: 3,
+  });
 
-  useEffect(() => {
-    const fetchUsers = async () => {
-      const { data } = await axios.get("/api/users");
-      setUsers(data);
-    };
-    fetchUsers();
-  }, []);
+  if (isLoading) return <Spinner />;
+  if (error) return null;
 
   return (
     <Select.Root>
