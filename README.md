@@ -37,3 +37,4 @@ https://authjs.dev/
 22. npm i @next-auth/prisma-adapter
 
 23. npm i @tanstack/react-query
+24. npm i react-hot-toast
