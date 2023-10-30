@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { AiFillDelete } from "react-icons/ai";
 
-const DeleteIssueButton = async ({ issueId }: { issueId: number }) => {
+const DeleteIssueButton = ({ issueId }: { issueId: number }) => {
   const router = useRouter();
   const [error, setError] = useState(false);
   const [isDeleting, setDeleting] = useState(false);
