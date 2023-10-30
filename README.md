@@ -38,3 +38,4 @@ https://authjs.dev/
 
 23. npm i @tanstack/react-query
 24. npm i react-hot-toast
+25. npm i recharts
